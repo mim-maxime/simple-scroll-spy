@@ -5,7 +5,7 @@ This is craeted by ng-packagr on Angular6.
 ## Installation
 
 ```
-npm install simple-scroll-spy --save
+npm install angular-simple-scroll-spy --save
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ npm install simple-scroll-spy --save
 #### App Module
 
 ```typescript
-import {SimpleScrollSpyModule} from "simple-scroll-spy";
+import {SimpleScrollSpyModule} from "angular-simple-scroll-spy";
 
 @NgModule({
 	imports: [SimpleScrollSpyModule]
@@ -27,7 +27,7 @@ or
 #### Shared Module
 
 ```typescript
-import {SimpleScrollSpyModule} from "simple-scroll-spy";
+import {SimpleScrollSpyModule} from "angular-simple-scroll-spy";
 
 @NgModule({
 	imports: [SimpleScrollSpyModule],
