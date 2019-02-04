@@ -1,80 +1,83 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "newProjectRoot": "projects",
-  "projects": {
-    "simple-scroll-spy-app": {
-      "root": "",
-      "sourceRoot": "src",
-      "projectType": "application",
-      "prefix": "app",
-      "schematics": {},
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/simple-scroll-spy-app",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
-            "assets": [],
-            "styles": [],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+        "simple-scroll-spy-app": {
+            "root": "",
+            "sourceRoot": "src",
+            "projectType": "application",
+            "prefix": "app",
+            "schematics": {},
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/simple-scroll-spy-app",
+                        "index": "src/index.html",
+                        "main": "src/main.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "src/tsconfig.app.json",
+                        "assets": [],
+                        "styles": [],
+                        "scripts": []
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "aot": true,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "simple-scroll-spy-app:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "simple-scroll-spy-app:build:production"
+                        }
+                    }
                 }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true
             }
-          }
         },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "simple-scroll-spy-app:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "simple-scroll-spy-app:build:production"
+        "simple-scroll-spy": {
+            "root": "projects/simple-scroll-spy",
+            "sourceRoot": "projects/simple-scroll-spy/src",
+            "projectType": "library",
+            "prefix": "lib",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "projects/simple-scroll-spy/tsconfig.lib.json",
+                        "project": "projects/simple-scroll-spy/ng-package.json",
+                        "exclude": [
+                            "**/node_modules/**"
+                        ]
+                    },
+                    "configurations": {
+                        "production": {
+                            "project": "projects/simple-scroll-spy/ng-package.prod.json"
+                        }
+                    }
+                }
             }
-          }
         }
-      }
     },
-    "simple-scroll-spy": {
-      "root": "projects/simple-scroll-spy",
-      "sourceRoot": "projects/simple-scroll-spy/src",
-      "projectType": "library",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/simple-scroll-spy/tsconfig.lib.json",
-            "project": "projects/simple-scroll-spy/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "projects/simple-scroll-spy/ng-package.prod.json"
-            }
-          }
-        }
-      }
-    }
-  },
-  "defaultProject": "simple-scroll-spy-app"
+    "defaultProject": "simple-scroll-spy-app"
 }

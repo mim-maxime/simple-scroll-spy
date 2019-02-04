@@ -1,20 +1,20 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  template: `
+    selector: 'app-root',
+    template: `
     <ul>
       <li scrollSpyMenu="menu1" [ssmCurrentContent]="currentMenuId">Menu 1</li>
       <li scrollSpyMenu="menu2" [ssmCurrentContent]="currentMenuId">Menu 2</li>
       <li scrollSpyMenu="menu3" [ssmCurrentContent]="currentMenuId">Menu 3</li>
     </ul>
-    <div scrollSpyContent="DIV" [(sscCurrentContent)]="currentMenuId" class="container">
+    <div scrollSpyContent="DIV"  sscDectector="middle" [(sscCurrentContent)]="currentMenuId" class="container">
       <div id="menu1" class="content">content1</div>
       <div id="menu2" class="content">content2</div>
       <div id="menu3" class="content">content3</div>
     </div>
   `,
-  styles: [`
+    styles: [`
     :host {
       display: flex;
       justify-content: start;
@@ -43,10 +43,12 @@ import { Component } from '@angular/core';
     }
     div.content {
       padding: 2em;
-      height: 50em; 
+      height: 13em; 
+      background-color:red;
+      margin-bottom:1rem;
     }
   `]
 })
 export class AppComponent {
-  currentMenuId = "menu1";
+    currentMenuId = "menu1";
 }

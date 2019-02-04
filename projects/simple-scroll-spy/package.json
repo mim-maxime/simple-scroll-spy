@@ -1,24 +1,24 @@
 {
-  "name": "angular-simple-scroll-spy",
-  "version": "0.0.2",
-  "description": "",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/neko2me/simple-scroll-spy.git"
-  },
-  "keywords": [
-    "angular",
-    "scrollspy",
-    "directive"
-  ],
-  "author": "neko2me",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/neko2me/simple-scroll-spy/issues"
-  },
-  "homepage": "https://github.com/neko2me/simple-scroll-spy#readme",
-  "peerDependencies": {
-    "@angular/common": "^2.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0",
-    "@angular/core": "^2.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0"
-  }
+    "name": "mim-angular-simple-scroll-spy",
+    "version": "0.0.1",
+    "description": "",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mim-maxime/simple-scroll-spy.git"
+    },
+    "keywords": [
+        "angular",
+        "scrollspy",
+        "directive"
+    ],
+    "author": "mim-maxime",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/mim-maxime/simple-scroll-spy/issues"
+    },
+    "homepage": "https://github.com/mim-maxime/simple-scroll-spy#readme",
+    "peerDependencies": {
+        "@angular/common": "^2.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0",
+        "@angular/core": "^2.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0"
+    }
 }
