@@ -17,20 +17,31 @@ export class ScrollSpyContentDirective {
     @Input() public sscCurrentContent: string;
     @Output() public sscCurrentContentChange = new EventEmitter<string>();
     @Input() public sscDirection: "row" | "colmun" = "row";
-    @Input() public sscDectector: 'top' | "middle" = "top";
+    @Input() public sscDetector: 'top' | "middle" = "top";
+    @Input() public sscLogging: true | false = false;
 
     constructor(private _element: ElementRef) { }
 
     @HostListener('scroll', ['$event'])
     onScroll(event: any) {
-        let offsetHeight = (this.sscDectector === "top") ? event.target.offsetTop : (event.target.offsetHeight / 2);
-        let offsetLeft = (this.sscDectector === "top") ? event.target.offsetLeft : (event.target.offsetLeft / 2);
+        let offsetHeight = (this.sscDetector === "top") ? event.target.offsetTop : (event.target.offsetHeight / 2) + event.target.offsetTop;
+        let offsetLeft = (this.sscDetector === "top") ? event.target.offsetLeft : (event.target.offsetLeft / 2) - event.target.offsetLeft;
+
+        if (this.sscLogging) {
+            console.log({
+                "offsetHeight": offsetHeight,
+                "event.target.offsetTop": event.target.offsetTop,
+                "event.target.offsetHeight": event.target.offsetHeight,
+                "event.target.scrollTop": event.target.scrollTop,
+
+            });
+        }
         let nowContent: any = Array.from<any>(this._element.nativeElement.children)
             .filter(child => this.target === child.tagName)
             .reverse()
             .find(child => this.sscDirection === "row" ?
                 (child.offsetTop - offsetHeight) <= event.target.scrollTop :
-                (child.offsetLeft - offsetLeft) <= event.target.scrollLeft
+                (child.offsetLeft - offsetLeft) <= event.target.scrollLeft_
             );
         if (!nowContent) return;
 

@@ -7,18 +7,37 @@ import { Component } from '@angular/core';
       <li scrollSpyMenu="menu1" [ssmCurrentContent]="currentMenuId">Menu 1</li>
       <li scrollSpyMenu="menu2" [ssmCurrentContent]="currentMenuId">Menu 2</li>
       <li scrollSpyMenu="menu3" [ssmCurrentContent]="currentMenuId">Menu 3</li>
+      <li scrollSpyMenu="menu4" [ssmCurrentContent]="currentMenuId">Menu 4</li>
     </ul>
-    <div scrollSpyContent="DIV"  sscDectector="middle" [(sscCurrentContent)]="currentMenuId" class="container">
-      <div id="menu1" class="content">content1</div>
-      <div id="menu2" class="content">content2</div>
-      <div id="menu3" class="content">content3</div>
+    <div id="parent">
+        <div id="empty_space" ></div>
+        <div scrollSpyContent="DIV" sscLogging=true sscDetector="middle" [(sscCurrentContent)]="currentMenuId" class="container">
+        <div id="menu1" class="content">content1</div>
+        <div id="menu2" class="content">content2</div>
+        <div id="4" class="content">content3</div>
+        <div id="" class="content">content4</div>
+        <div id="" class="content">content5</div>
+        </div>
     </div>
+    
   `,
     styles: [`
     :host {
       display: flex;
       justify-content: start;
       border: solid 1px silver;
+    }
+    #parent{
+        position:relative;
+        height:500px;
+        width:100%;
+        overflow:hidden;
+    }
+    #empty_space{
+        height:200px;
+        width:100%;
+        position:relative;
+        background:blue;
     }
     ul {
       padding: 0;
@@ -36,10 +55,8 @@ import { Component } from '@angular/core';
       font-weight: bold;
     }
     div.container {
-      padding: 2em;
-      height: 20em;
-      overflow-y: scroll;
-      width: 100%;
+        height: 300px;
+        overflow-y: scroll;
     }
     div.content {
       padding: 2em;
