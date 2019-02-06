@@ -2,7 +2,9 @@ import {
     Directive,
     ElementRef,
     HostListener,
+    EventEmitter,
     Input,
+    Output,
     Renderer2
 } from '@angular/core';
 
@@ -21,6 +23,8 @@ export class ScrollSpyMenuDirective {
         }
     }
 
+    @Output() public ssmCatchClick = new EventEmitter<string>();
+
     @Input() public ssmScrollBehavior: ScrollBehavior = "smooth";
     @Input() public ssmScrollBlock: ScrollLogicalPosition = "start";
     @Input() public ssmScrollInline: ScrollLogicalPosition = "nearest";
@@ -30,14 +34,18 @@ export class ScrollSpyMenuDirective {
     @HostListener('click', ['$event'])
     onClick(event: any) {
         try {
-            document.querySelector(`#${this.contentId}`).scrollIntoView({
-                behavior: this.ssmScrollBehavior,
-                block: this.ssmScrollBlock,
-                inline: this.ssmScrollInline
-            });
+            if (this.ssmCatchClick.observers.length > 0) {
+                this.ssmCatchClick.emit(`#${this.contentId}`);
+            } else {
+                document.querySelector(`#${this.contentId}`).scrollIntoView({
+                    behavior: this.ssmScrollBehavior,
+                    block: this.ssmScrollBlock,
+                    inline: this.ssmScrollInline
+                });
+            }
+
         } catch (e) {
 
         }
-
     }
 }

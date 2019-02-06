@@ -4,19 +4,19 @@ import { Component } from '@angular/core';
     selector: 'app-root',
     template: `
     <ul>
-      <li scrollSpyMenu="menu1" [ssmCurrentContent]="currentMenuId">Menu 1</li>
-      <li scrollSpyMenu="menu2" [ssmCurrentContent]="currentMenuId">Menu 2</li>
-      <li scrollSpyMenu="menu3" [ssmCurrentContent]="currentMenuId">Menu 3</li>
-      <li scrollSpyMenu="menu4" [ssmCurrentContent]="currentMenuId">Menu 4</li>
+      <li scrollSpyMenu="menu1"  [ssmCurrentContent]="currentMenuId">Menu 1</li>
+      <li scrollSpyMenu="menu2" (ssmCatchClick)="click($event)" [ssmCurrentContent]="currentMenuId">Menu 2</li>
+      <li scrollSpyMenu="menu3" (ssmCatchClick)="click($event)" [ssmCurrentContent]="currentMenuId">Menu 3</li>
+      <li scrollSpyMenu="menu4" (ssmCatchClick)="click($event)" [ssmCurrentContent]="currentMenuId">Menu 4</li>
     </ul>
     <div id="parent">
         <div id="empty_space" ></div>
-        <div scrollSpyContent="DIV" sscLogging=true sscDetector="middle" [(sscCurrentContent)]="currentMenuId" class="container">
-        <div id="menu1" class="content">content1</div>
-        <div id="menu2" class="content">content2</div>
-        <div id="4" class="content">content3</div>
-        <div id="" class="content">content4</div>
-        <div id="" class="content">content5</div>
+        <div scrollSpyContent="DIV" sscLogging=false  sscDetector="middle" [(sscCurrentContent)]="currentMenuId" class="container">
+            <div id="menu1" class="content">content1</div>
+            <div id="menu2" class="content">content2</div>
+            <div id="4" class="content">content3</div>
+            <div id="" class="content">content4</div>
+            <div id="" class="content">content5</div>
         </div>
     </div>
     
@@ -68,4 +68,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
     currentMenuId = "menu1";
+
+    click(test) {
+        console.log('click' + test);
+    }
 }

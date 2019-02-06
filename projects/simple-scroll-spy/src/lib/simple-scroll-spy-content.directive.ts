@@ -27,7 +27,7 @@ export class ScrollSpyContentDirective {
         let offsetHeight = (this.sscDetector === "top") ? event.target.offsetTop : (event.target.offsetHeight / 2) + event.target.offsetTop;
         let offsetLeft = (this.sscDetector === "top") ? event.target.offsetLeft : (event.target.offsetLeft / 2) - event.target.offsetLeft;
 
-        if (this.sscLogging) {
+        if (this.sscLogging === true) {
             console.log({
                 "offsetHeight": offsetHeight,
                 "event.target.offsetTop": event.target.offsetTop,
