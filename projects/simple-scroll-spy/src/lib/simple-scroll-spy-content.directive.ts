@@ -41,9 +41,9 @@ export class ScrollSpyContentDirective {
         let nowContent: any = Array.from<any>(this._element.nativeElement.querySelectorAll(this.target))
             //.filter(child => this.target === child.tagName)
             .reverse()
-            .find(child => this.sscDirection === "row" ?
-                (child.offsetTop - offsetHeight) <= event.target.scrollTop :
-                (child.offsetLeft - offsetLeft) <= event.target.scrollLeft
+            .find(child => this.sscDirection === "row" ? (console.log(child.offsetTop),
+                (child.offsetTop) <= event.target.scrollTop) :
+                (child.offsetLeft) <= event.target.scrollLeft
             );
         if (!nowContent) return;
 
