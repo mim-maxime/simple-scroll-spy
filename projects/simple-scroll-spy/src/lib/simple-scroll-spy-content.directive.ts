@@ -33,15 +33,17 @@ export class ScrollSpyContentDirective {
                 "event.target.offsetTop": event.target.offsetTop,
                 "event.target.offsetHeight": event.target.offsetHeight,
                 "event.target.scrollTop": event.target.scrollTop,
-
+                'target': this.target,
+                'queryResult': this._element.nativeElement.querySelectorAll(this.target)
             });
+
         }
         let nowContent: any = Array.from<any>(this._element.nativeElement.querySelectorAll(this.target))
-            .filter(child => this.target === child.tagName)
+            //.filter(child => this.target === child.tagName)
             .reverse()
             .find(child => this.sscDirection === "row" ?
                 (child.offsetTop - offsetHeight) <= event.target.scrollTop :
-                (child.offsetLeft - offsetLeft) <= event.target.scrollLeft_
+                (child.offsetLeft - offsetLeft) <= event.target.scrollLeft
             );
         if (!nowContent) return;
 

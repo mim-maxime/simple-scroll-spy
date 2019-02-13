@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
     </ul>
     <div id="parent">
         <div id="empty_space" ></div>
-        <div scrollSpyContent="DIV" sscLogging=false  sscDetector="middle" [(sscCurrentContent)]="currentMenuId" class="container">
+        <div scrollSpyContent="DIV" [sscLogging]=true  sscDetector="middle" [(sscCurrentContent)]="currentMenuId" class="container">
             <span class="jeanbob">
                 <div id="menu1" class="content">content1</div>
                 <div id="menu2" class="content">content2</div>
