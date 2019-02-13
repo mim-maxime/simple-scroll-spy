@@ -36,7 +36,7 @@ export class ScrollSpyContentDirective {
 
             });
         }
-        let nowContent: any = Array.from<any>(this._element.nativeElement.children)
+        let nowContent: any = Array.from<any>(this._element.nativeElement.querySelectorAll(this.target))
             .filter(child => this.target === child.tagName)
             .reverse()
             .find(child => this.sscDirection === "row" ?
